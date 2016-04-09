@@ -1,0 +1,28 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    long long int A, B;
+    int final;
+    int T;
+    cin>>T;
+    while(T>0){
+        cin>>A>>B;
+        long long int A_sqrt = sqrt(A);
+        long long int B_sqrt = sqrt(B);
+        if(A_sqrt*A_sqrt == A){
+             final =  B_sqrt - A_sqrt +1;
+        }else{
+            final = B_sqrt - A_sqrt;
+        }
+        T--;
+        cout<<final<<endl;
+    }
+    return 0;
+}
