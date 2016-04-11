@@ -1,0 +1,44 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+//#include <ctype>
+using namespace std;
+
+int main() {
+	/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+	int T = 0, k = 0, i = 0, op = 0;
+	cin >> T;
+	string a;
+	while (T > 0) {
+		k = 0;
+		i = 0;
+		op = 0;
+		cin >> a;
+		for (int i = 0; a[i] != '\0'; i++) {
+			a[i] = tolower(a[i]);
+		}
+		k = a.size() - 1;
+		while (a[i] == a[k]) {
+			if ((i == k) || (i > k)) {
+				break;
+			}
+			i++;
+			k--;
+		}
+		while (i < k) {
+			if ((int) a[i] > (int) a[k]) {
+				op = op + ((int) a[i] - (int) a[k]);
+
+			} else if ((int) a[i] < (int) a[k]) {
+				op = op + ((int) a[k] - (int) a[i]);
+			}
+			i++;
+			k--;
+		}
+		cout << op << endl;
+		T--;
+	}
+	return 0;
+}
